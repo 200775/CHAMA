@@ -7,6 +7,10 @@ const app=express();
 connectDB();
 app.use(cors());
 app.use(express.json());
+app.get("/api/members", async (req, res) => {
+  const members = await Member.find();
+  res.json(members);
+});
 app.get('/',(req,res)=>{
     res.send('API running');
 });

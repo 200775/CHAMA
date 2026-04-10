@@ -1,91 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chama App</title>
-  <link rel="stylesheet" href="cc.css">
-</head>
-<body>
-
-  <nav>
-    <h1>🤝 Chama App</h1>
-    <div class="nav-links">
-      <button onclick="showPage('dashboard')">Dashboard</button>
-      <button onclick="showPage('members')">Members</button>
-      <button onclick="showPage('contributions')">Contributions</button>
-      <button onclick="showPage('loans')">Loans</button>
-    </div>
-  </nav>
-
-  <!-- Dashboard Page -->
-  <div id="dashboard" class="page">
-    <h2>Dashboard</h2>
-    <div class="stats">
-      <div class="stat-card">
-        <p>Total Members</p>
-        <h3 id="total-members">0</h3>
-      </div>
-      <div class="stat-card">
-        <p>Total Contributions</p>
-        <h3 id="total-contributions">KSh 0</h3>
-      </div>
-      <div class="stat-card">
-        <p>Active Loans</p>
-        <h3 id="active-loans">0</h3>
-      </div>
-    </div>
-  </div>
-
-  <!-- Members Page -->
-  <div id="members" class="page hidden">
-    <h2>Members</h2>
-    <div class="card">
-      <h3>Add Member</h3>
-      <input type="text"  id="member-name"  placeholder="Full Name">
-      <input type="email" id="member-email" placeholder="Email">
-      <input type="text"  id="member-phone" placeholder="Phone Number">
-      <input type="password" id="member-password" placeholder="Password">
-      <button onclick="addMember()">Add Member</button>
-    </div>
-    <div class="card">
-      <h3>All Members</h3>
-      <div id="members-list"></div>
-    </div>
-  </div>
-
-  <!-- Contributions Page -->
-  <div id="contributions" class="page hidden">
-    <h2>Contributions</h2>
-    <div class="card">
-      <h3>Record Contribution</h3>
-      <select id="contribution-member"></select>
-      <input type="number" id="contribution-amount" placeholder="Amount (KSh)">
-      <input type="text"   id="contribution-month"  placeholder="Month e.g January 2025">
-      <button onclick="addContribution()">Record Contribution</button>
-    </div>
-    <div class="card">
-      <h3>All Contributions</h3>
-      <div id="contributions-list"></div>
-    </div>
-  </div>
-
-  <!-- Loans Page -->
-  <div id="loans" class="page hidden">
-    <h2>Loans</h2>
-    <div class="card">
-      <h3>Request Loan</h3>
-      <select id="loan-member"></select>
-      <input type="number" id="loan-amount"   placeholder="Loan Amount (KSh)">
-      <input type="number" id="loan-interest" placeholder="Interest % (default 10)">
-      <button onclick="requestLoan()">Request Loan</button>
-    </div>
-    <div class="card">
-      <h3>All Loans</h3>
-      <div id="loans-list"></div>
-    </div>
-  </div>
-
-  <script src="jj.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
