@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Guazel</string>
+    <string name="title_activity_main">Guazel</string>
+    <string name="package_name">comm.guazel.app</string>
+    <string name="custom_url_scheme">comm.guazel.app</string>
+</resources>
