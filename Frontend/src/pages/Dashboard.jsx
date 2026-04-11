@@ -1,7 +1,7 @@
 function Dashboard() {
   return (
     <div>
-      <h1 style="text-align:left">Chama Dashboard</h1>
+      <h1>Chama Dashboard</h1>
     </div>
   );
 }
