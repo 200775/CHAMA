@@ -1,23 +1,52 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api/axios";
 
-function Members() {
+export default function Members() {
   const [members, setMembers] = useState([]);
+  const [name, setName] = useState("");
 
+  // GET members
   useEffect(() => {
-    axios.get("http://chamazyl.up.railway.app/api/members")
-      .then(res => setMembers(res.data))
-      .catch(err => console.log(err));
+    fetchMembers();
   }, []);
+
+  const fetchMembers = async () => {
+    const res = await axios.get("/members");
+    setMembers(res.data);
+  };
+
+  // ADD member
+  const addMember = async () => {
+    await axios.post("/members", { name });
+    setName("");
+    fetchMembers();
+  };
+
+  // DELETE member
+  const deleteMember = async (id) => {
+    await axios.delete(`/members/${id}`);
+    fetchMembers();
+  };
 
   return (
     <div>
-      <h1>Members</h1>
-      {members.map(m => (
-        <p key={m._id}>{m.name}</p>
-      ))}
+      <h2>Members</h2>
+
+      <input
+        placeholder="Member name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button onClick={addMember}>Add</button>
+
+      <ul>
+        {members.map((m) => (
+          <li key={m._id}>
+            {m.name}
+            <button onClick={() => deleteMember(m._id)}>X</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
-
-export default Members;
