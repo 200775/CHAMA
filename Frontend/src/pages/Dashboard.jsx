@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../api/axios";
+import axios from "../axios";
 
 export default function Dashboard() {
   const [membersCount, setMembersCount] = useState(0);
