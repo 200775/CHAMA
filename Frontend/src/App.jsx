@@ -1,19 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard.jsx";
-import Members from "./pages/Members.jsx";
+import Layout from "./Layout";
+import Dashboard from "./pages/Dashboard";
+import Members from "./pages/Members";
+import Contributions from "./pages/Contributions";
+import Loans from "./pages/Loans";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/members" element={<Members />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="members" element={<Members />} />
+          <Route path="contributions" element={<Contributions />} />
+          <Route path="loans" element={<Loans />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;
 /*
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
