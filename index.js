@@ -16,6 +16,7 @@ app.get('/',(req,res)=>{
 });
 app.use(express.static('Frontend'));
 //app.use('/api/user',routes);
+app.use('/users',         require('./routes/users'))
 app.use('/members',       require('./routes/members'))
 app.use('/contributions', require('./routes/contributions'))
 app.use('/loans',         require('./routes/loans'))
