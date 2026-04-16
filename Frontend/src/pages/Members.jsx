@@ -19,6 +19,7 @@ export default function Members() {
   const addMember = async () => {
     await axios.post("/members", { name });
     setName("");
+    alert("Member added!");
     fetchMembers();
   };
 
