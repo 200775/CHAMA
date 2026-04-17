@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 import Members from "./pages/Members";
 import Contributions from "./pages/Contributions";
 import Loans from "./pages/Loans";
@@ -11,6 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="users" element={<Login/>}/>
           <Route path="members" element={<Members />} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="loans" element={<Loans />} />
