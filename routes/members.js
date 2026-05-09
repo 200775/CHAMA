@@ -1,33 +1,11 @@
- /*const express = require('express')
-const router = express.Router()
-const Member = require('../models/Member')
 
-// GET all members
-router.get('/', async (req, res) => {
-  const members = await Member.find().select('-password')
-  res.json(members)
-})
-
-// POST add member
-router.post('/', async (req, res) => {
-  try {
-    const member = new Member(req.body)
-    await member.save()
-    res.status(201).json(member)
-  } catch (err) {
-    res.status(400).json({ error: err.message })
-  }
-})
-
-// DELETE member
-*/
 const express = require("express");
 const router = express.Router();
 const Member = require("../models/Member");
 
 // GET all
 router.get("/", async (req, res) => {
-  const members = await Member.find();
+  const members = await Member.find().select("-password");
   res.json(members);
 });
 
@@ -49,4 +27,4 @@ router.delete('/:id', async (req, res) => {
   res.json({ message: 'Member deleted' })
 })
 
-module.exports = router
+module.exports = router;

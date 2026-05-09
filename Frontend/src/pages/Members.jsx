@@ -1,52 +1,45 @@
 import { useEffect, useState } from "react";
-import axios from "../axios";
+import axios from "axios";
+import Sidebar from "../components/Sidebar";
 
-export default function Members() {
+function Members() {
   const [members, setMembers] = useState([]);
-  const [name, setName] = useState("");
 
-  // GET members
   useEffect(() => {
     fetchMembers();
   }, []);
 
   const fetchMembers = async () => {
-    const res = await axios.get("/members");
-    setMembers(res.data);
-  };
+    try {
+      const res = await axios.get(
+        "http://localhost:5000/api/members"
+      );
 
-  // ADD member
-  const addMember = async () => {
-    await axios.post("/members", { name });
-    setName("");
-    fetchMembers();
-  };
-
-  // DELETE member
-  const deleteMember = async (id) => {
-    await axios.delete(`/members/${id}`);
-    fetchMembers();
+      setMembers(res.data);
+       } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div>
-      <h2>Members</h2>
+    <div className="dashboard-layout">
+      <Sidebar />
 
-      <input
-        placeholder="Member name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button onClick={addMember}>Add</button>
+      <div className="dashboard-content">
+        <h1>Members</h1>
 
-      <ul>
-        {members.map((m) => (
-          <li key={m._id}>
-            {m.name}
-            <button onClick={() => deleteMember(m._id)}>X</button>
-          </li>
-        ))}
-      </ul>
+        <div className="members-grid">
+          {members.map((member) => (
+            <div className="member-card" key={member._id}>
+              <h3>{member.name}</h3>
+              <p>{member.email}</p>
+              <span>{member.phone}</span>
+              </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
+
+export default Members;

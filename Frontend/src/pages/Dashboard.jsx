@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+/*import { useEffect, useState } from "react";
 import axios from "../axios";
 
 export default function Dashboard() {
@@ -24,4 +24,36 @@ export default function Dashboard() {
       </div>
     </div>
   );
+}*/
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import axios from "../axios";
+function Dashboard() {
+  return (
+    <div className="dashboard-layout">
+      <Sidebar />
+
+      <div className="dashboard-content">
+        <h1>Chama Dashboard</h1>
+
+        <div className="stats-grid">
+          <div className="card">
+            <h2>KES 150,000</h2>
+            <p>Total Savings</p>
+          </div>
+          <div className="card">
+            <h2>24</h2>
+            <p>Total Members</p>
+          </div>
+
+          <div className="card">
+            <h2>KES 35,000</h2>
+            <p>Loans Issued</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+export default Dashboard;

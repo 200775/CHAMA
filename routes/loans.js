@@ -39,4 +39,4 @@ router.put('/:id/repay', async (req, res) => {
   res.json(loan)
 })
 
-module.exports = router
+module.exports = router;

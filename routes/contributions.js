@@ -34,4 +34,4 @@ router.get('/total', async (req, res) => {
   res.json({ total: result[0]?.total || 0 })
 })
 
-module.exports = router
+module.exports = router;

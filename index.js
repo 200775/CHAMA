@@ -1,6 +1,10 @@
 const express=require('express');
 const  cors=require('cors');
 const routes=require('./routes/routes');
+const  members=require('./routes/members');
+const  contributions=require('./routes/contributions');
+const  loans=require('./routes/loans');
+const users=require('./routes/users');
 require('dotenv').config();
 const connectDB=require('./config/db');
 const app=express();
@@ -16,14 +20,14 @@ app.get('/',(req,res)=>{
 });
 app.use(express.static('Frontend'));
 //app.use('/api/user',routes);
-app.use('/members',       require('./routes/members'))
-app.use('/contributions', require('./routes/contributions'))
-app.use('/loans',         require('./routes/loans'))
+app.use('/users', users);
+app.use('/members', members);
+app.use('/contributions', contributions);
+app.use('/loans', loans);
 //start server
 const PORT=process.env.PORT||7000;
 app.listen(PORT,()=>
     console.log(`Server is running on port:${PORT}`)
 );
-
 
 
