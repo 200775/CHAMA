@@ -20,10 +20,17 @@ app.get('/',(req,res)=>{
 });
 app.use(express.static('Frontend'));
 //app.use('/api/user',routes);
+<<<<<<< HEAD
 app.use('/users', users);
 app.use('/members', members);
 app.use('/contributions', contributions);
 app.use('/loans', loans);
+=======
+app.use('/users',         require('./routes/users'))
+app.use('/members',       require('./routes/members'))
+app.use('/contributions', require('./routes/contributions'))
+app.use('/loans',         require('./routes/loans'))
+>>>>>>> 93c28912e91cce27073d9b5b411a6f452c8722b0
 //start server
 const PORT=process.env.PORT||7000;
 app.listen(PORT,()=>

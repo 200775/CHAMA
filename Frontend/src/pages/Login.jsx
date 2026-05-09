@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -64,3 +65,31 @@ function Login() {
 }
 
 export default Login;
+=======
+import { useState } from "react";
+import axios from "axios";
+
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    const res = await axios.post("https://chamazyl.up.railway.app/", {
+      email,
+      password
+    });
+
+    alert(res.data.message);
+    localStorage.setItem("user", JSON.stringify(res.data.user));
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
+      <input placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+}
+>>>>>>> 93c28912e91cce27073d9b5b411a6f452c8722b0

@@ -15,10 +15,25 @@ function Members() {
         "http://localhost:5000/api/members"
       );
 
+<<<<<<< HEAD
       setMembers(res.data);
        } catch (error) {
       console.log(error);
     }
+=======
+  // ADD member
+  const addMember = async () => {
+    await axios.post("/members", { name });
+    setName("");
+    alert("Member added!");
+    fetchMembers();
+  };
+
+  // DELETE member
+  const deleteMember = async (id) => {
+    await axios.delete(`/members/${id}`);
+    fetchMembers();
+>>>>>>> 93c28912e91cce27073d9b5b411a6f452c8722b0
   };
 
   return (
