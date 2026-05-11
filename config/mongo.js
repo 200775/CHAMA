@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 const mongoose = require("mongoose");
 
@@ -14,7 +13,6 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-=======
 
 const mongoose = require("mongoose");
 
@@ -30,5 +28,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
->>>>>>> 93c28912e91cce27073d9b5b411a6f452c8722b0
 module.exports = mongoose.model("User", userSchema);
