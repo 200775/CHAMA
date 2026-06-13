@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-
 export default function ProtectedRoute() {
   // Replace this with your actual auth checking logic (e.g., checking localStorage for a JWT token)
   const isAuthenticated = localStorage.getItem('chama_token') !== null;

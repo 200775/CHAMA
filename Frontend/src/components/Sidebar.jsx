@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
 import './Sidebar.css';
 
 export default function Sidebar({ onLogout }) {
@@ -11,8 +11,6 @@ export default function Sidebar({ onLogout }) {
         <h3>Chamaz Dashboard</h3>
         <span className="live-dot">● Active Session</span>
       </div>
-
-      {/* Main App Navigation */}
       <nav className="sidebar-menu-top">
         <NavLink to="/dashboard" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
           <span className="icon">📊</span> Dashboard
