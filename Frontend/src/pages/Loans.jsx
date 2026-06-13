@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from '../components/Navbar';
 import './Loans.css';
 
-export default function LoansPage() {
+export default function Loans() {
   const activeLoans = [
     { id: 1, borrower: "Alex Mwangi", principal: 40000, balance: 15000, dueDate: "2026-08-01" }
   ];

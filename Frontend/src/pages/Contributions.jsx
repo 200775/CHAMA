@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import './Contributions.css';
 
-export default function ContributionsPage() {
+export default function Contributions() {
   const [ledgers, setLedgers] = useState([
     { id: 1, name: "Grace Kendi", amount: 5000, date: "2026-06-10", method: "M-Pesa", status: "Verified" },
     { id: 2, name: "David Ochieng", amount: 5000, date: "2026-06-09", method: "Bank Trans", status: "Pending" }

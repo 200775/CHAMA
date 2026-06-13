@@ -38,9 +38,9 @@ export default function Members() {
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import MemberCard from '../components/MemberCard';
-import './MembersPage.css';
+import './Members.css';
 
-export default function MembersPage() {
+export default function Members() {
   const [members, setMembers] = useState([]);
   const [query, setQuery] = useState('');
 

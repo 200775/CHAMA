@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import './AddMember.css';
 
-export default function AddMemberPage() {
+export default function AddMember() {
   const [form, setForm] = useState({ firstName: '', lastName: '', phone: '', email: '' });
   const [notif, setNotif] = useState('');
 

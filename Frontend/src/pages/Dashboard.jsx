@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar'; 
 import { Outlet, useNavigate } from 'react-router-dom';
 
-export default function DashboardPage() {
+export default function Dashboard() {
   return (
     <div className="sub-page-view">
       <Navbar />
