@@ -1,82 +1,82 @@
-
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ecf0f1;
+.view-content-wrapper {
+  padding: 32px;
 }
 
-
-.dashboard-container {
-  display: flex;
-  height: 100vh; 
-  overflow: hidden; 
+.dashboard-hero h1 {
+  margin: 0 0 4px 0;
+  color: #0f172a;
 }
 
-
-.sidebar {
-  width: 250px;
-  background-color: #2c3e50;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  z-index: 10;
+.dashboard-hero p {
+  margin: 0 0 32px 0;
+  color: #64748b;
 }
 
-.sidebar h2 {
-  margin-top: 10px;
-  margin-bottom: 30px;
+.summary-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.badge-ico {
   font-size: 24px;
-  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 12px;
 }
 
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-
-.sidebar-link {
-  color: #bdc3c7;
-  text-decoration: none;
-  padding: 12px 15px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+.kpi-card h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
   font-weight: 500;
 }
 
-.sidebar-link:hover {
-  background-color: #34495e;
-  color: #ffffff;
-  transform: translateX(5px); /* Nice little slide effect on hover */
+.kpi-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 8px 0;
 }
 
-/* Logout button pushed to the bottom */
-.logout-btn {
-  margin-top: auto; /* Flexbox trick to push this to the very bottom */
-  background-color: transparent;
-  color: #e74c3c;
-  border: 1px solid #e74c3c;
-  padding: 12px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+.trend {
+  font-size: 12px;
+  font-weight: 500;
+}
+.trend.positive { color: #10b981; }
+.trend.stable { color: #0ea5e9; }
+.trend.negative { color: #ef4444; }
+
+.insights-panel {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.insight-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.calendar-block {
+  background-color: #f0f9ff;
+  border: 1px solid #b9e6fe;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-weight: bold;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.logout-btn:hover {
-  background-color: #e74c3c;
-  color: #ffffff;
-}
-
-/* Main Content Area */
-.main-content {
-  flex-grow: 1; /* Tells the content area to take up all remaining space */
-  padding: 40px;
-  overflow-y: auto; /* Allows only the content area to scroll if it gets too long */
+  color: #0369a1;
 }

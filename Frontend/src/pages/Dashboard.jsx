@@ -1,35 +1,54 @@
 
 import axios from "../axios";
-import { Link, Outlet } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './Dashboard.css'; 
+import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar'; 
+import { Outlet, useNavigate } from 'react-router-dom';
 
-export default function Dashboard({ onLogout }) {
+export default function DashboardPage() {
   return (
-    <div className="dashboard-container" style={{ display: 'flex', height: '100vh' }}>
-      
-      {/* Sidebar Navigation */}
-      <aside style={{ width: '250px', background: '#2c3e50', color: 'white', padding: '20px' }}>
-        <h2>Chamaz</h2>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '30px' }}>
-          <Link to="/contributions" style={{ color: 'white', textDecoration: 'none' }}>Contributions</Link>
-          <Link to="/loans" style={{ color: 'white', textDecoration: 'none' }}>Loans</Link>
-          <Link to="/members" style={{ color: 'white', textDecoration: 'none' }}>Members</Link>
-          <Link to="/add-member" style={{ color: 'white', textDecoration: 'none' }}>Add Member</Link>
-        </nav>
-        <button 
-          onClick={onLogout} 
-          style={{ marginTop: '50px', background: 'transparent', color: '#e74c3c', border: 'none', cursor: 'pointer' }}
-        >
-          Log Out
-        </button>
-      </aside>
+    <div className="sub-page-view">
+      <Navbar />
+      <div className="view-content-wrapper">
+        <div className="dashboard-hero">
+          <h1>Habari, Treasurer</h1>
+          <p>Here is an automated baseline report of the Group's financial health.</p>
+        </div>
 
-      {/* Main Content Area */}
-      <main style={{ flexGrow: 1, padding: '40px', background: '#ecf0f1', overflowY: 'auto' }}>
-        {/* The Outlet is where React Router injects the child components */}
-        <Outlet /> 
-      </main>
+        {/* Financial KPI Summary Matrix */}
+        <div className="summary-matrix">
+          <div className="kpi-card group-savings">
+            <span className="badge-ico">💰</span>
+            <h3>Total Accumulated Pool</h3>
+            <p className="kpi-amount">KES 1,450,000</p>
+            <span className="trend positive">↑ +12.4% This month</span>
+          </div>
 
+          <div className="kpi-card active-loans">
+            <span className="badge-ico">📈</span>
+            <h3>Active Loans Awarded</h3>
+            <p className="kpi-amount">KES 380,000</p>
+            <span className="trend stable">8 Members Active</span>
+          </div>
+
+          <div className="kpi-card penalties">
+            <span className="badge-ico">⚠️</span>
+            <h3>Outstanding Penalties</h3>
+            <p className="kpi-amount">KES 4,500</p>
+            <span className="trend negative">Requires attention</span>
+          </div>
+        </div>
+
+        {/* Quick Insights Block */}
+        <div className="insights-panel">
+          <h3>Upcoming Important Events</h3>
+          <div className="insight-row">
+            <div className="calendar-block"><span>15</span><span>Jun</span></div>
+            <p>Monthly contribution collection cycle closes.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

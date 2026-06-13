@@ -1,45 +1,76 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Sidebar from "../components/Sidebar";
-
-function Members() {
+/*import axios from "axios";
+import MemberCard from '../components/MemberCard';
+export default function Members() {
   const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Fetch data from your Node.js API
+    fetch('http://localhost:5000/api/members')
+      .then(response => response.json())
+      .then(data => {
+        setMembers(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching Chama members:", error);
+        setLoading(false);
+      });
+  }, []);
+  if (loading) return <div>Loading Chama Directory...</div>;
+  return (
+    <div className="members-page">
+      <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', marginBottom: '20px' }}>
+        <h2>Chama Members Directory6</h2>
+        <span className="count-badge">{members.length} Total Members</span>
+      </div>
+      <div className="members-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
+        {members.map(member => (
+          <MemberCard 
+            key={member.member_id} 
+            memberData={member} // Passing the database row down as a prop
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+*/
+import { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
+import MemberCard from '../components/MemberCard';
+import './MembersPage.css';
+
+export default function MembersPage() {
+  const [members, setMembers] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
-    fetchMembers();
+    // Standard secure streaming extraction loop
+    fetch('http://localhost:5000/api/members')
+      .then(res => res.json())
+      .then(data => setMembers(data))
+      .catch(err => console.error(err));
   }, []);
 
-  const fetchMembers = async () => {
-    try {
-      const res = await axios.get(
-        "http://localhost:7000/api/members"
-      );
-
-      setMembers(res.data);
-       } catch (error) {
-      console.log(error);
-    }
-  };
+  const dataFiltered = members.filter(m => 
+    `${m.first_name} ${m.last_name}`.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
-    <div className="dashboard-layout">
-      <Sidebar />
+    <div className="sub-page-view">
+      <Navbar onSearch={setQuery} searchValue={query} />
+      <div className="view-content-wrapper">
+        <div className="view-title-strip">
+          <h2>Active Directory Profiles</h2>
+          <span className="count-pill">{dataFiltered.length} Members Listed</span>
+        </div>
 
-      <div className="dashboard-content">
-        <h1>Members</h1>
-
-        <div className="members-grid">
-          {members.map((member) => (
-            <div className="member-card" key={member._id}>
-              <h3>{member.name}</h3>
-              <p>{member.email}</p>
-              <span>{member.phone}</span>
-              </div>
+        <div className="responsive-members-grid">
+          {dataFiltered.map(m => (
+            <MemberCard key={m.member_id} member={m} />
           ))}
         </div>
       </div>
     </div>
   );
 }
-
-export default Members;

@@ -1,0 +1,52 @@
+.export-statement-trigger {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-statement-trigger:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.table-responsive-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.ledger-table th {
+  background-color: #f8fafc;
+  padding: 16px;
+  color: #64748b;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ledger-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.badge-subtle {
+  background-color: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.status-dot.verified { color: #10b981; font-weight: bold; }
+.status-dot.pending { color: #f59e0b; font-weight: bold; }

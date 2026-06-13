@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../config/mongo");
+const User = require("../models/User");
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 

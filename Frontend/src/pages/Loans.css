@@ -1,0 +1,41 @@
+.primary-action-trigger {
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loan-track-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  max-width: 400px;
+}
+
+.loan-progress-metrics {
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+.bar-track {
+  background-color: #e2e8f0;
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background-color: #0ea5e9;
+  height: 100%;
+}
+
+.due-warning {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}

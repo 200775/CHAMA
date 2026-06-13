@@ -64,26 +64,57 @@ function Login() {
 }
 
 export default Login;*/
+import { useState } from 'react';
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
-export default function Login({ onLogin }) {
+export default function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSignIn = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-  
-    onLogin(); 
-    navigate('/');
+    // Simple verification mock action
+    localStorage.setItem('chama_token', 'mocked-secure-jwt');
+    navigate('/dashboard');
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center', background: '#f4f4f4' }}>
-      <form onSubmit={handleSignIn} style={{ background: 'white', padding: '40px', borderRadius: '8px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-        <h2>Chamaz</h2>
-        <input type="text" placeholder="Username" required style={{ display: 'block', margin: '10px auto', padding: '8px' }} />
-        <input type="password" placeholder="Password" required style={{ display: 'block', margin: '10px auto', padding: '8px' }} />
-        <button type="submit" style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>Sign In</button>
-      </form>
+    <div className="auth-surface-container">
+      <div className="login-glass-card">
+        <h2>Welcome Back</h2>
+        <p>Access your Chamaz account portal securely</p>
+        
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="input-field-block">
+            <label>Secure Email Address</label>
+            <input 
+              type="email" 
+              required 
+              placeholder="name@domain.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="input-field-block">
+            <label>Password Account Key</label>
+            <input 
+              type="password" 
+              required 
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <button type="submit" className="login-submit-trigger">
+            Authenticate Access
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

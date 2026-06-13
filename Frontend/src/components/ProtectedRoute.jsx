@@ -1,13 +1,8 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from 'react-router-dom';
 
-function ProtectedRoute({ children }) {
-  const token = localStorage.getItem("token");
+export default function ProtectedRoute() {
+  // Replace this with your actual auth checking logic (e.g., checking localStorage for a JWT token)
+  const isAuthenticated = localStorage.getItem('chama_token') !== null;
 
-  if (!token) {
-    return <Navigate to="/" />;
-  }
-
-  return children;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/Login" replace />;
 }
-
-export default ProtectedRoute;

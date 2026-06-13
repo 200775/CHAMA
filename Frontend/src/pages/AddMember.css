@@ -1,0 +1,40 @@
+.form-card-container {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 650px;
+}
+
+.system-alert-banner {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.structured-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-input-pair-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.commit-disbursement-btn {
+  background-color: #0ea5e9;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 12px;
+}

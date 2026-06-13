@@ -1,0 +1,77 @@
+.auth-surface-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.login-glass-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.login-glass-card h2 {
+  margin: 0 0 6px 0;
+  color: #0f172a;
+}
+
+.login-glass-card p {
+  margin: 0 0 24px 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-field-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-field-block label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.input-field-block input {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.input-field-block input:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+.login-submit-trigger {
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 8px;
+}
+
+.login-submit-trigger:hover {
+  background-color: #0284c7;
+}
