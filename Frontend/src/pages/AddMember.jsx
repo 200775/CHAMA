@@ -20,7 +20,7 @@ function AddMember() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/members",
+        "http://localhost:7000/api/members",
         member
       );
 

@@ -12,7 +12,7 @@ function Members() {
   const fetchMembers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/members"
+        "http://localhost:7000/api/members"
       );
 
       setMembers(res.data);
