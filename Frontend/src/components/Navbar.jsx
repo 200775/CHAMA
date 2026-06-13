@@ -1,6 +1,15 @@
 import './Navbar.css';
-
+import { useState } from 'react';
 export default function Navbar({ onSearch, searchValue }) {
+  const [searchTerm, setSearchTerm] = useState(searchValue || '');
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    if (onSearch) {
+      onSearch(e.target.value);
+    }
+  };
+
   return (
     <header className="chama-navbar">
       <div className="search-box-container">

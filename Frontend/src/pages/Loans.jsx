@@ -1,12 +1,14 @@
 import React from "react";
+import useState from "react";
 import axios from "axios";
 import Navbar from '../components/Navbar';
 import './Loans.css';
 
 export default function Loans() {
-  const activeLoans = [
+  const [activeLoans, setActiveLoans] = useState([
+
     { id: 1, borrower: "Alex Mwangi", principal: 40000, balance: 15000, dueDate: "2026-08-01" }
-  ];
+  ]);
 
   return (
     <div className="sub-page-view">

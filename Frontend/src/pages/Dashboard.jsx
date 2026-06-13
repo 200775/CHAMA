@@ -1,11 +1,12 @@
 
 import axios from "../axios";
+import { useState, useEffect } from 'react';
 import { Link} from 'react-router-dom';
 import './Dashboard.css'; 
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar'; 
 import { Outlet, useNavigate } from 'react-router-dom';
-
+import ProtectedRoute from '../components/ProtectedRoute';
 export default function Dashboard() {
   return (
     <div className="sub-page-view">

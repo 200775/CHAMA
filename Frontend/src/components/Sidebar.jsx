@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import './Sidebar.css';
 
 export default function Sidebar({ onLogout }) {
+  const [activeItem, setActiveItem] = useState('');
+
   return (
     <aside className="chama-sidebar">
       <div className="sidebar-brand">
