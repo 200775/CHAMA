@@ -1,12 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
-import Layout from "./Layout";
 import Dashboard from "./pages/Dashboard";
 import Members from "./pages/Members";
 import Contributions from "./pages/Contributions";
 import Loans from "./pages/Loans";
 import AddMember from "./pages/AddMember";
-import Register from "./pages/Register";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

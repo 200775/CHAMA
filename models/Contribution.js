@@ -1,12 +1,23 @@
-const mongoose = require('mongoose')
+const db = require('../config/db');
 
-const ContributionSchema = new mongoose.Schema({
-  memberId:   { type: mongoose.Schema.Types.ObjectId, ref: 'Member', required: true },
-  amount:     { type: Number, required: true },
-  month:      { type: String, required: true },
-  datePaid:   { type: Date, default: Date.now },
-  status:     { type: String, enum: ['paid', 'pending'], default: 'paid' },
-  recordedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Member' }
-})
+async function createContribution(memberId, amount) {
+  const [result] = await db.query(
+    'INSERT INTO contributions (member_id, amount) VALUES (?, ?)',
+    [memberId, amount]
+  );
 
-module.exports = mongoose.model('Contribution', ContributionSchema)
+  return result;
+}
+
+async function getAllContributions() {
+  const [rows] = await db.query(
+    'SELECT * FROM contributions'
+  );
+
+  return rows;
+}
+
+module.exports = {
+  createContribution,
+  getAllContributions
+};
