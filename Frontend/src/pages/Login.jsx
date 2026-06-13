@@ -1,4 +1,4 @@
-
+/*
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -63,4 +63,27 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login;*/
+import { useNavigate } from 'react-router-dom';
+
+export default function Login({ onLogin }) {
+  const navigate = useNavigate();
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+  
+    onLogin(); 
+    navigate('/');
+  };
+
+  return (
+    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center', background: '#f4f4f4' }}>
+      <form onSubmit={handleSignIn} style={{ background: 'white', padding: '40px', borderRadius: '8px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+        <h2>Chamaz</h2>
+        <input type="text" placeholder="Username" required style={{ display: 'block', margin: '10px auto', padding: '8px' }} />
+        <input type="password" placeholder="Password" required style={{ display: 'block', margin: '10px auto', padding: '8px' }} />
+        <button type="submit" style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>Sign In</button>
+      </form>
+    </div>
+  );
+}

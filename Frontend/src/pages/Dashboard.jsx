@@ -1,59 +1,35 @@
-/*import { useEffect, useState } from "react";
+
 import axios from "../axios";
+import { Link, Outlet } from 'react-router-dom';
+import './Dashboard.css'; 
 
-export default function Dashboard() {
-  const [membersCount, setMembersCount] = useState(0);
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
-    const res = await axios.get("/members");
-    setMembersCount(res.data.length);
-  };
-
+export default function Dashboard({ onLogout }) {
   return (
-    <div>
-      <h1>Chama Dashboard</h1>
+    <div className="dashboard-container" style={{ display: 'flex', height: '100vh' }}>
+      
+      {/* Sidebar Navigation */}
+      <aside style={{ width: '250px', background: '#2c3e50', color: 'white', padding: '20px' }}>
+        <h2>Chamaz</h2>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '30px' }}>
+          <Link to="/contributions" style={{ color: 'white', textDecoration: 'none' }}>Contributions</Link>
+          <Link to="/loans" style={{ color: 'white', textDecoration: 'none' }}>Loans</Link>
+          <Link to="/members" style={{ color: 'white', textDecoration: 'none' }}>Members</Link>
+          <Link to="/add-member" style={{ color: 'white', textDecoration: 'none' }}>Add Member</Link>
+        </nav>
+        <button 
+          onClick={onLogout} 
+          style={{ marginTop: '50px', background: 'transparent', color: '#e74c3c', border: 'none', cursor: 'pointer' }}
+        >
+          Log Out
+        </button>
+      </aside>
 
-      <div style={{ display: "flex", gap: "20px" }}>
-        <div>Members: {membersCount}</div>
-        <div>Contributions: coming soon</div>
-        <div>Loans: coming soon</div>
-      </div>
-    </div>
-  );
-}*/
-import React from "react";
-import Sidebar from "../components/Sidebar";
-import axios from "../axios";
-function Dashboard() {
-  return (
-    <div className="dashboard-layout">
-      <Sidebar />
+      {/* Main Content Area */}
+      <main style={{ flexGrow: 1, padding: '40px', background: '#ecf0f1', overflowY: 'auto' }}>
+        {/* The Outlet is where React Router injects the child components */}
+        <Outlet /> 
+      </main>
 
-      <div className="dashboard-content">
-        <h1>Chama Dashboard</h1>
-
-        <div className="stats-grid">
-          <div className="card">
-            <h2>KES 150,000</h2>
-            <p>Total Savings</p>
-          </div>
-          <div className="card">
-            <h2>24</h2>
-            <p>Total Members</p>
-          </div>
-
-          <div className="card">
-            <h2>KES 35,000</h2>
-            <p>Loans Issued</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
-
-export default Dashboard;

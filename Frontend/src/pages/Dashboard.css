@@ -1,0 +1,82 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ecf0f1;
+}
+
+
+.dashboard-container {
+  display: flex;
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.sidebar h2 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.sidebar-link {
+  color: #bdc3c7;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  background-color: #34495e;
+  color: #ffffff;
+  transform: translateX(5px); /* Nice little slide effect on hover */
+}
+
+/* Logout button pushed to the bottom */
+.logout-btn {
+  margin-top: auto; /* Flexbox trick to push this to the very bottom */
+  background-color: transparent;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 12px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.logout-btn:hover {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+  flex-grow: 1; /* Tells the content area to take up all remaining space */
+  padding: 40px;
+  overflow-y: auto; /* Allows only the content area to scroll if it gets too long */
+}
