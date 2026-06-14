@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import './AddMember.css';
-import pool from '../config/db.js';
 
 export default function AddMember() {
   const [form, setForm] = useState({ firstName: '', lastName: '', phone: '', email: '' });

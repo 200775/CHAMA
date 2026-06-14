@@ -7,7 +7,6 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar'; 
 import { Outlet, useNavigate } from 'react-router-dom';
 import ProtectedRoute from '../components/ProtectedRoute';
-import pool from '../config/db.js';
 export default function Dashboard() {
   return (
     <div className="sub-page-view">
