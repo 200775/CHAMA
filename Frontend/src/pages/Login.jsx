@@ -86,11 +86,11 @@ export default function Login() {
     <div className="auth-surface-container">
       <div className="login-glass-card">
         <h2>Welcome Back</h2>
-        <p>Access your Chamaz account portal securely</p>
+        <p>Access your Chamaz account portal securely</p
         
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="input-field-block">
-            <label>Secure Email Address</label>
+            <label>email</label>
             <input 
               type="email" 
               required 
@@ -101,7 +101,7 @@ export default function Login() {
           </div>
 
           <div className="input-field-block">
-            <label>Password Account Key</label>
+            <label>password</label>
             <input 
               type="password" 
               required 
