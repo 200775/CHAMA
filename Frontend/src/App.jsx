@@ -19,13 +19,13 @@ export default function App() {
 
         {/* Protected Dashboard Routes */}
         <Route 
-          path="/dashboard" 
+          path=''
           element={
             isAuthenticated ? <Dashboard onLogout={() => setIsAuthenticated(false)} /> : <Navigate to="/login" />
           }
         >
           {/* These nested routes render inside the Dashboard */}
-          <Route index element={<Navigate to="/dashboard/contributions" />} />
+           <Route path="dashboard" element={<Dashboard />} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="add-member" element={<AddMember />} />
           <Route path="members" element={<Members />} />
