@@ -64,6 +64,7 @@ function Login() {
 }
 
 export default Login;*/
+import pool from '../config/db.js';
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';

@@ -3,6 +3,7 @@ import useState from "react";
 import axios from "axios";
 import Navbar from '../components/Navbar';
 import './Loans.css';
+import pool from '../config/db.js';
 
 export default function Loans() {
   const [activeLoans, setActiveLoans] = useState([

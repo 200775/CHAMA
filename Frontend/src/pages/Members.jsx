@@ -39,6 +39,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import MemberCard from '../components/MemberCard';
 import './Members.css';
+import pool from '../config/db.js';
 
 export default function Members() {
   const [members, setMembers] = useState([]);

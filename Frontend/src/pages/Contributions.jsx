@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import './Contributions.css';
+import pool from '../config/db.js';
 
 export default function Contributions() {
   const [ledgers, setLedgers] = useState([
