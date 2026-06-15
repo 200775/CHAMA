@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import DashboardOverview from "./pages/DashboardOverview"; 
 import Login from "./pages/Login";
-import DashboardOverview from "./pages/DashboardOverview";
 import Dashboard from "./pages/Dashboard";
 import Members from "./pages/Members";
 import Contributions from "./pages/Contributions";
 import Loans from "./pages/Loans";
 import AddMember from "./pages/AddMember";
+
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('chama_token') ? true : false;
@@ -30,8 +31,9 @@ export default function App() {
           path="/dashboard" 
           element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />}
         >
-          <Route index element={<Dashboardview />} />
-          <Route path="dashboard" element={<Dashboard/>} />
+          <Route index element={<DashboardOverview />} />
+          <Route path="members" element={<Members />} />
+          <Route path="add-member" element={<AddMember />} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="loans" element={<Loans />} />
         </Route>
