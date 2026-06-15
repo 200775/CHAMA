@@ -8,30 +8,37 @@ import Loans from "./pages/Loans";
 import AddMember from "./pages/AddMember";
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('chama_token') ? true : false;
+  });
+
+  const handleLogout = () => {
+    localStorage.removeItem('chama_token');
+    setIsAuthenticated(false);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
         <Route 
           path="/login" 
-          element={<Login onLogin={() => setIsAuthenticated(true)} />} 
-        />
-
-        {/* Protected Dashboard Routes */}
-        <Route 
-          path=''
           element={
-            isAuthenticated ? <Dashboard onLogout={() => setIsAuthenticated(false)} /> : <Navigate to="/login" />
+            isAuthenticated ? <Navigate to="/dashboard/contributions" /> : <Login onLogin={() => setIsAuthenticated(true)} />
+          } 
+        />
+        <Route 
+          path="/dashboard" 
+          element={
+            isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />
           }
         >
-          {/* These nested routes render inside the Dashboard */}
-           <Route path="dashboard" element={<Dashboard />} />
+          <Route index element={<Navigate to="contributions" replace />} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="add-member" element={<AddMember />} />
           <Route path="members" element={<Members />} />
           <Route path="loans" element={<Loans />} />
         </Route>
-        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />} />
+        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard/contributions" : "/login"} />} />
       </Routes>
     </BrowserRouter>
   );

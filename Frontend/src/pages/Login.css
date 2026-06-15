@@ -1,77 +1,182 @@
-.auth-surface-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+/* Login.css */
+
+:root {
+  --primary-color: #0d9488; /* Beautiful deep teal */
+  --primary-hover: #0f766e;
+  --bg-gradient-start: #0f172a; /* Sleek dark theme foundation */
+  --bg-gradient-end: #1e1b4b;
+  --card-bg: rgba(255, 255, 255, 0.98);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --error-bg: #fee2e2;
+  --error-text: #b91c1c;
 }
 
-.login-glass-card {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 24px;
+/* Full-screen centering container with animated mesh gradient */
+.login-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Modern, clean shadow card */
+.login-card {
+  background: var(--card-bg);
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-.login-glass-card h2 {
+/* Header branding */
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.chama-logo-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.login-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
   margin: 0 0 6px 0;
-  color: #0f172a;
+  letter-spacing: -0.025em;
 }
 
-.login-glass-card p {
-  margin: 0 0 24px 0;
-  color: #64748b;
-  font-size: 14px;
+.login-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
 }
 
-.auth-form {
+/* Form layouts */
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.input-field-block {
+.form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.input-field-block label {
-  font-size: 12px;
+.form-group label {
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
+  color: #334155;
 }
 
-.input-field-block input {
+.form-group input {
   padding: 12px 16px;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
   transition: all 0.2s ease;
-}
-
-.input-field-block input:focus {
   outline: none;
-  border-color: #0ea5e9;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
 }
 
-.login-submit-trigger {
-  background-color: #0ea5e9;
+/* Beautiful dynamic input highlight focus rings */
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.15);
+}
+
+/* High-contrast functional action button */
+.login-submit-btn {
+  background: var(--primary-color);
   color: white;
-  border: none;
   padding: 14px;
-  border-radius: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
-  margin-top: 8px;
+  transition: background 0.2s ease, transform 0.1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.login-submit-trigger:hover {
-  background-color: #0284c7;
+.login-submit-btn:hover {
+  background: var(--primary-hover);
+}
+
+.login-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Clean UI Alert for caught backend rejection strings */
+.error-alert {
+  background: var(--error-bg);
+  color: var(--error-text);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 4px solid var(--error-text);
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Micro-interactions & animations */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Inline Loading Spinner Configuration */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
