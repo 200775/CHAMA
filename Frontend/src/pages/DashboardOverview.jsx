@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Dashboardview() {
+export default function DashboardOverview() {
   const [stats, setStats] = useState({
     totalMembers: 0,
     totalContributions: 0,

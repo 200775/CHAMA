@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboardview";
+import DashboardOverview from "./pages/DashboardOverview";
+import Dashboard from "./pages/Dashboard";
 import Members from "./pages/Members";
 import Contributions from "./pages/Contributions";
 import Loans from "./pages/Loans";
@@ -23,22 +24,23 @@ export default function App() {
         <Route 
           path="/login" 
           element={
-            isAuthenticated ? <Navigate to="/dashboardview" /> : <Login onLogin={() => setIsAuthenticated(true)} />
+            isAuthenticated ? <Navigate to="/dashboardOverview" /> : <Login onLogin={() => setIsAuthenticated(true)} />
           } 
         />
         <Route 
-          path="/dashboardview" 
+          path="/dashboardOverview" 
           element={
             isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />
           }
         >
           <Route index element={<Dashboardview />} />
+          <Route path="dashboard" element={<Dashboard/>} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="add-member" element={<AddMember />} />
           <Route path="members" element={<Members />} />
           <Route path="loans" element={<Loans />} />
         </Route>
-        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard/contributions" : "/login"} />} />
+        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboardOverview" : "/login"} />} />
       </Routes>
     </BrowserRouter>
   );

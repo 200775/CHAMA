@@ -60,13 +60,13 @@ export default function Dashboard({ onLogout }) {
             to="/dashboard/contributions" 
             className={`menu-item ${location.pathname.includes('contributions') ? 'active' : ''}`}
           >
-            💰 Contributions
+            Contributions
           </Link>
           <Link 
             to="/dashboard/loans" 
             className={`menu-item ${location.pathname.includes('loans') ? 'active' : ''}`}
           >
-            🏦 Loans
+            Loans
           </Link>
         </nav>
 
