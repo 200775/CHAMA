@@ -30,9 +30,8 @@ export default function App() {
           path="/dashboard" 
           element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />}
         >
-          <Route index element={<DashboardOverview />} />
-          <Route path="members" element={<Members />} />
-          <Route path="add-member" element={<AddMember />} />
+          <Route index element={<Dashboardview />} />
+          <Route path="dashboard" element={<Dashboard/>} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="loans" element={<Loans />} />
         </Route>
@@ -42,4 +41,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
