@@ -5,7 +5,7 @@ import { Link} from 'react-router-dom';
 import './Dashboard.css'; 
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar'; 
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import ProtectedRoute from '../components/ProtectedRoute';
 import React from 'react';
 
