@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import './Sidebar.css';
 
 export default function Sidebar({ onLogout }) {
@@ -11,23 +11,25 @@ export default function Sidebar({ onLogout }) {
         <h3>Chamaz Dashboard</h3>
         <span className="live-dot">● Active Session</span>
       </div>
+
+      {/* Main App Navigation */}
       <nav className="sidebar-menu-top">
         <NavLink to="/dashboard" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
           <span className="icon">📊</span> Dashboard
         </NavLink>
-        <NavLink to="/contributions" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
+        <NavLink to="/dashboard/contributions" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
           <span className="icon">💰</span> Contributions
         </NavLink>
-        <NavLink to="/loans" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
+        <NavLink to="/dashboard/loans" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
           <span className="icon">📈</span> Loans Portal
         </NavLink>
-        <NavLink to="/members" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
+        <NavLink to="/dashboard/members" className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}>
           <span className="icon">👥</span> Member Directory
         </NavLink>
       </nav>
 
       <div className="sidebar-menu-bottom">
-        <NavLink to="/add-member" className={({ isActive }) => isActive ? "menu-item admin-btn active" : "menu-item admin-btn"}>
+        <NavLink to="/dashboard/add-member" className={({ isActive }) => isActive ? "menu-item admin-btn active" : "menu-item admin-btn"}>
           <span className="icon">➕</span> Add New Member
         </NavLink>
         

@@ -1,75 +1,71 @@
-/*
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-function Login() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await axios.post(
-        "https://chamazyl.up.railway.app",
-        formData
-      );
-      localStorage.setItem("token", res.data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      alert("Invalid login credentials");
-    }
-  };
-
-  return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1>Chamaz</h1>
-        <p>Manage savings, loans & members easily</p>
-
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Email"
-            onChange={handleChange}
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            onChange={handleChange}
-          />
-
-          <button type="submit">Login</button>
-        </form>
-
-        <span>
-          No account? <Link to="/register">Create one</Link>
-        </span>
-      </div>
-    </div>
-  );
-}
-
-export default Login;*/
 
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+/*
 
+
+export default function Login({ onLogin }) { 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      // Use your temporary Ngrok link or your live deployed backend URL
+      const response = await fetch('https://your-backend-url.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // 2. Save token so App.jsx remembers the session on refresh
+        localStorage.setItem('chama_token', data.token);
+        
+        // 3. CRITICAL: Flip the 'isAuthenticated' state in App.jsx to true
+        onLogin(); 
+        
+        // 4. Move inside the nested dashboard layout path
+        navigate('/dashboard/contributions');
+      } else {
+        alert(data.message || 'Database authentication failed!');
+      }
+    } catch (err) {
+      console.error('Network connection error:', err);
+      alert('Cannot connect to your local backend server.');
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <form onSubmit={handleSubmit}>
+        <h2>Chama Authentication</h2>
+        <input
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Authenticate Access</button>
+      </form>
+    </div>
+  );
+}
+*/
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
