@@ -33,7 +33,7 @@ export default function App() {
             isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />
           }
         >
-          <Route index element={<Dashboardview />} />
+          <Route index element={<DashboardOverview />} />
           <Route path="dashboard" element={<Dashboard/>} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="add-member" element={<AddMember />} />
