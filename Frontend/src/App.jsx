@@ -23,16 +23,16 @@ export default function App() {
         <Route 
           path="/login" 
           element={
-            isAuthenticated ? <Navigate to="/dashboard/contributions" /> : <Login onLogin={() => setIsAuthenticated(true)} />
+            isAuthenticated ? <Navigate to="/dashboardview" /> : <Login onLogin={() => setIsAuthenticated(true)} />
           } 
         />
         <Route 
-          path="/dashboard" 
+          path="/dashboardview" 
           element={
             isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" />
           }
         >
-          <Route index element={<Navigate to="contributions" replace />} />
+          <Route index element={<Dashboardview />} />
           <Route path="contributions" element={<Contributions />} />
           <Route path="add-member" element={<AddMember />} />
           <Route path="members" element={<Members />} />

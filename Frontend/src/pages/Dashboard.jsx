@@ -7,49 +7,89 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar'; 
 import { Outlet, useNavigate } from 'react-router-dom';
 import ProtectedRoute from '../components/ProtectedRoute';
-export default function Dashboard() {
+import React from 'react';
+
+export default function Dashboard({ onLogout }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Retrieve the logged-in admin's email from localStorage
+  const adminEmail = localStorage.getItem('chama_email') || 'admin@chama.or.ke';
+  // Split email to create a clean display username
+  const adminUsername = adminEmail.split('@')[0];
+
+  const handleSignOut = () => {
+    localStorage.removeItem('chama_email');
+    onLogout();
+    navigate('/login');
+  };
+
   return (
-    <div className="sub-page-view">
-      <Navbar />
-      <div className="view-content-wrapper">
-        <div className="dashboard-hero">
-          <h1>Habari, Treasurer</h1>
-          <p>Here is an automated baseline report of the Group's financial health.</p>
-        </div>
-
-        {/* Financial KPI Summary Matrix */}
-        <div className="summary-matrix">
-          <div className="kpi-card group-savings">
-            <span className="badge-ico">💰</span>
-            <h3>Total Accumulated Pool</h3>
-            <p className="kpi-amount">KES 1,450,000</p>
-            <span className="trend positive">↑ +12.4% This month</span>
-          </div>
-
-          <div className="kpi-card active-loans">
-            <span className="badge-ico">📈</span>
-            <h3>Active Loans Awarded</h3>
-            <p className="kpi-amount">KES 380,000</p>
-            <span className="trend stable">8 Members Active</span>
-          </div>
-
-          <div className="kpi-card penalties">
-            <span className="badge-ico">⚠️</span>
-            <h3>Outstanding Penalties</h3>
-            <p className="kpi-amount">KES 4,500</p>
-            <span className="trend negative">Requires attention</span>
+    <div className="dashboard-layout">
+      
+      {/* 1. SIDEBAR PANEL */}
+      <aside className="sidebar">
+        <div className="sidebar-brand">
+          <span className="brand-logo">🇰🇪</span>
+          <div>
+            <h3>Chamaz</h3>
+            <p>Admin Portal</p>
           </div>
         </div>
 
-        {/* Quick Insights Block */}
-        <div className="insights-panel">
-          <h3>Upcoming Important Events</h3>
-          <div className="insight-row">
-            <div className="calendar-block"><span>15</span><span>Jun</span></div>
-            <p>Monthly contribution collection cycle closes.</p>
+        <nav className="sidebar-menu">
+          <Link 
+            to="/dashboard" 
+            className={`menu-item ${location.pathname === '/dashboard' ? 'active' : ''}`}
+          >
+            📊 Overview
+          </Link>
+          <Link 
+            to="/dashboard/members" 
+            className={`menu-item ${location.pathname.includes('members') ? 'active' : ''}`}
+          >
+            👥 Members
+          </Link>
+          <Link 
+            to="/dashboard/add-member" 
+            className={`menu-item ${location.pathname.includes('add-member') ? 'active' : ''}`}
+          >
+            ➕ Add Member
+          </Link>
+          <Link 
+            to="/dashboard/contributions" 
+            className={`menu-item ${location.pathname.includes('contributions') ? 'active' : ''}`}
+          >
+            💰 Contributions
+          </Link>
+          <Link 
+            to="/dashboard/loans" 
+            className={`menu-item ${location.pathname.includes('loans') ? 'active' : ''}`}
+          >
+            🏦 Loans
+          </Link>
+        </nav>
+
+        {/* 2. ADMIN PROFILE FOOTER */}
+        <div className="sidebar-profile-footer">
+          <div className="profile-avatar">
+            {adminUsername.substring(0, 2).toUpperCase()}
           </div>
+          <div className="profile-info">
+            <span className="profile-name">@{adminUsername}</span>
+            <span className="profile-role">System Admin</span>
+          </div>
+          <button onClick={handleSignOut} className="logout-action-btn" title="Sign Out">
+            🚪
+          </button>
         </div>
-      </div>
+      </aside>
+
+      {/* 3. MAIN APP VIEWPORT */}
+      <main className="main-content-panel">
+        <Outlet />
+      </main>
+
     </div>
   );
 }

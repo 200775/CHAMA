@@ -27,14 +27,10 @@ export default function Login({ onLogin }) {
       const data = await response.json();
 
       if (response.ok) {
-        // 1. Save the token to persist the session
         localStorage.setItem('chama_token', data.token);
-        
-        // 2. Flip the state in App.jsx to unlock the router guards
+        localStorage.setItem('chama_email', email);
         onLogin(); 
-        
-        // 3. Smoothly redirect straight into the internal dashboard viewport
-        navigate('/dashboard/contributions');
+        navigate('/dashboard');
       } else {
         setErrorMessage(data.message || 'Invalid credentials. Please try again.');
       }
@@ -52,7 +48,7 @@ export default function Login({ onLogin }) {
         
         <div className="login-header">
           <div className="chama-logo-icon">🇰🇪</div>
-          <h1>Chama Digital</h1>
+          <h1>Chamaz</h1>
           <p>Secure Bookkeeping & Financial Portal</p>
         </div>
 

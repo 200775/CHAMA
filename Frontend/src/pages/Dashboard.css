@@ -1,82 +1,152 @@
-.view-content-wrapper {
-  padding: 32px;
-}
-
-.dashboard-hero h1 {
-  margin: 0 0 4px 0;
-  color: #0f172a;
-}
-
-.dashboard-hero p {
-  margin: 0 0 32px 0;
-  color: #64748b;
-}
-
-.summary-matrix {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 32px;
-}
-
-.kpi-card {
-  background-color: #ffffff;
-  padding: 24px;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  position: relative;
-}
-
-.badge-ico {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.kpi-card h3 {
-  margin: 0;
-  font-size: 14px;
-  color: #64748b;
-  font-weight: 500;
-}
-
-.kpi-amount {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 8px 0;
-}
-
-.trend {
-  font-size: 12px;
-  font-weight: 500;
-}
-.trend.positive { color: #10b981; }
-.trend.stable { color: #0ea5e9; }
-.trend.negative { color: #ef4444; }
-
-.insights-panel {
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid #e2e8f0;
-}
-
-.insight-row {
+/* Dashboard.css */
+.dashboard-layout {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 16px;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f8fafc;
+  font-family: 'Inter', sans-serif;
 }
 
-.calendar-block {
-  background-color: #f0f9ff;
-  border: 1px solid #b9e6fe;
-  padding: 6px 12px;
-  border-radius: 8px;
+/* Sidebar configuration */
+.sidebar {
+  width: 260px;
+  background-color: #0f172a; /* Dark sleek slate slate */
+  color: #f1f5f9;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-weight: bold;
-  color: #0369a1;
+  padding: 24px 16px;
+  justify-content: space-between;
+  border-right: 1px solid #1e293b;
 }
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.brand-logo { font-size: 2rem; }
+.sidebar-brand h3 { margin: 0; font-size: 1.15rem; color: white; }
+.sidebar-brand p { margin: 0; font-size: 0.75rem; color: #94a3b8; }
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  flex-grow: 1;
+}
+
+.menu-item {
+  display: block;
+  padding: 12px 16px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: #1e293b;
+  color: white;
+}
+
+.menu-item.active {
+  background-color: #0d9488; /* Deep Teal Theme Accent */
+  color: white;
+}
+
+/* Admin profile panel docked at bottom */
+.sidebar-profile-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #1e293b;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: auto;
+}
+
+.profile-avatar {
+  background-color: #0d9488;
+  color: white;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.profile-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.profile-role { font-size: 0.7rem; color: #94a3b8; }
+
+.logout-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.logout-action-btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+/* Main layout containers */
+.main-content-panel {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.overview-container { max-width: 1100px; margin: 0 auto; }
+.overview-header h1 { font-size: 1.75rem; color: #0f172a; margin: 0 0 6px 0; }
+.overview-header p { color: #64748b; margin: 0 0 32px 0; }
+
+/* Metrics Cards Layout */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1xl));
+  gap: 24px;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.metric-icon { font-size: 2.25rem; }
+.metric-data h3 { margin: 0; font-size: 0.9rem; color: #64748b; font-weight: 500; }
+.metric-number { margin: 4px 0 0 0; font-size: 1.5rem; font-weight: 700; color: #0f172a; }
+
+/* Subtle accent identifiers */
+.teal-card { border-left: 5px solid #0d9488; }
+.gold-card { border-left: 5px solid #eab308; }
+.indigo-card { border-left: 5px solid #6366f1; }
