@@ -1,41 +1,146 @@
-.primary-action-trigger {
-  background-color: #0ea5e9;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
+/* Loans.css */
+.loans-viewport {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
 }
 
-.loan-track-card {
-  background-color: #ffffff;
+.loans-header-block h1 { font-size: 1.75rem; color: #0f172a; margin: 0 0 6px 0; }
+.loans-header-block p { color: #64748b; margin: 0 0 28px 0; font-size: 0.95rem; }
+
+.loans-card-wrapper {
+  background: white;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
-  padding: 24px;
-  max-width: 400px;
-}
-
-.loan-progress-metrics {
-  margin: 16px 0;
-  font-size: 13px;
-}
-
-.bar-track {
-  background-color: #e2e8f0;
-  height: 8px;
-  border-radius: 4px;
-  margin-top: 6px;
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.04);
   overflow: hidden;
+  margin-bottom: 32px;
 }
 
-.bar-fill {
-  background-color: #0ea5e9;
-  height: 100%;
+.loans-premium-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
 }
 
-.due-warning {
-  margin: 0;
-  font-size: 12px;
-  color: #64748b;
+.loans-premium-table th {
+  background-color: #f8fafc;
+  padding: 16px;
+  color: #475569;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
 }
+
+.loans-premium-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.loans-premium-table tr:last-child td { border-bottom: none; }
+.empty-table-prompt { text-align: center; color: #94a3b8; padding: 32px !important; }
+
+/* Dynamic Status Badges */
+.status-badge-node {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* Match colors to exact string parameters requested */
+.status-badge-node.submitted {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.status-badge-node.pending {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+/* Mid-Page Section Split Structural Divider line layout */
+.loan-action-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 16px;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.divider-line { flex-grow: 1; height: 1px; background-color: #e2e8f0; }
+
+/* Lower Horizontal Request Form Styling Configuration */
+.loans-form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.04);
+}
+
+.loans-form-card h3 { margin: 0 0 4px 0; color: #0f172a; font-size: 1.15rem; }
+.form-helper-txt { margin: 0 0 24px 0; color: #64748b; font-size: 0.85rem; }
+
+.inline-loan-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) auto;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .inline-loan-form { grid-template-columns: 1fr; }
+  .process-loan-btn { width: 100%; }
+}
+
+.loan-input-group { display: flex; flex-direction: column; gap: 8px; }
+.loan-input-group label { font-size: 0.82rem; font-weight: 600; color: #475569; }
+
+.loan-input-group select, .loan-input-group input {
+  padding: 10px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+.loan-input-group select:focus, .loan-input-group input:focus { border-color: #0d9488; }
+
+.process-loan-btn {
+  background-color: #0d9488;
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  height: 42px;
+  transition: background-color 0.2s;
+}
+.process-loan-btn:hover { background-color: #0f766e; }
+
+/* Status Notifications styling context */
+.form-feedback-banner {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.form-feedback-banner.success { background-color: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.form-feedback-banner.error { background-color: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; }
+
+.loans-loading { text-align: center; padding: 60px; color: #64748b; font-size: 0.95rem; }
