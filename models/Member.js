@@ -1,11 +1,11 @@
 const db = require('../config/db');
 
-async function createMember(fullName, phone, email, joinDate) {
+async function createMember(memberID,fullName, phone, email, joinDate) {
     const [result] = await db.query(
         `INSERT INTO members
-         (full_name, phone, email, join_date)
-         VALUES (?, ?, ?, ?)`,
-        [fullName, phone, email, joinDate]
+         (member_id, full_name, phone_number, email, join_date)
+         VALUES (?, ?, ?, ?, ?)`,
+        [memberID, fullName, phone, email, joinDate]
     );
 
     return result;
@@ -21,7 +21,7 @@ async function getAllMembers() {
 
 async function getMemberById(id) {
     const [rows] = await db.query(
-        'SELECT * FROM members WHERE id = ?',
+        'SELECT * FROM members WHERE member_id = ?',
         [id]
     );
 
@@ -31,8 +31,8 @@ async function getMemberById(id) {
 async function updateMember(id, fullName, phone, email) {
     const [result] = await db.query(
         `UPDATE members
-         SET full_name = ?, phone = ?, email = ?
-         WHERE id = ?`,
+         SET full_name = ?, phone_number = ?, email = ?
+         WHERE member_id = ?`,
         [fullName, phone, email, id]
     );
 
@@ -41,7 +41,7 @@ async function updateMember(id, fullName, phone, email) {
 
 async function deleteMember(id) {
     const [result] = await db.query(
-        'DELETE FROM members WHERE id = ?',
+        'DELETE FROM members WHERE member_id = ?',
         [id]
     );
 
